@@ -27,7 +27,7 @@ const client = new MongoClient(uri, {
 
 async function run() {
   try {
-    // Connect the client to the server	(optional starting in v4.7)
+  
     // await client.connect();
 
 const serviceCollection=client.db("fitnessSports").collection("services")
@@ -40,7 +40,7 @@ const newServiceCollection=client.db("fitnessSports").collection("newservice")
 
 
 
-// service section 
+
 
 app.get("/services",async(req,res)=>{
     const cursor=serviceCollection.find()
@@ -54,7 +54,7 @@ app.get("/services/:id", async (req, res) => {
     res.send(result);
   });
 
-// search function 
+
   app.get("/servicesbytext/:text",async(req,res)=>{
     const text=req.params.text 
 
@@ -73,7 +73,7 @@ app.get("/services/:id", async (req, res) => {
 
 
 
-// bookings section
+
 app.get('/bookings',async(req,res)=>{
    let query={};
    if(req.query?.email) {
@@ -90,7 +90,7 @@ app.post("/bookings",async(req,res)=>{
 })
 
 
-// Add service section 
+
 
 app.post('/addservices',async(req,res)=>{
 const newService=req.body 
